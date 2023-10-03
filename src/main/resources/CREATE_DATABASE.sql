@@ -1,0 +1,1 @@
+CREATE SCHEMA `bd_proyecto_final_viernes` ;
