@@ -1,6 +1,7 @@
 package com.ismaelmaldonado.final_servidor.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.*;
 
@@ -25,6 +26,12 @@ public class Vehiculo {
 
     public Vehiculo(int id) {
         this.id = id;
+    }
+
+    @JsonProperty("clienteId")
+    @Transient
+    public int getClienteId() {
+        return (cliente != null) ? cliente.getId() : null;
     }
 
     public int getId() {
@@ -105,7 +112,8 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo [matricula=" + matricula + ", fabricante=" + fabricante + ", modelo=" + modelo + "]";
+        return "Vehiculo [matricula=" + matricula + ", idCliente=" + cliente.getId() + ", fabricante=" + fabricante
+                + ", modelo=" + modelo + "]";
     }
 
 }
