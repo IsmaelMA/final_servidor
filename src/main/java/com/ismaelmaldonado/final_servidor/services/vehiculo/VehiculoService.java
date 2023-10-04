@@ -59,4 +59,9 @@ public class VehiculoService implements IVehiculoService {
         return repository.getVehiculosByFabricante(nombreFabricante);
     }
 
+    @Override
+    public Cliente getClienteByVehiculoId(int id) {
+        return repository.getClienteByVehiculoID(id);
+    }
+
 }

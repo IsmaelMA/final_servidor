@@ -2,6 +2,7 @@ package com.ismaelmaldonado.final_servidor.services.vehiculo;
 
 import java.util.List;
 
+import com.ismaelmaldonado.final_servidor.model.Cliente;
 import com.ismaelmaldonado.final_servidor.model.Vehiculo;
 
 public interface IVehiculoService {
@@ -19,5 +20,7 @@ public interface IVehiculoService {
     public void createVehiculo(Vehiculo vehiculo, int idCliente);
 
     public List<Vehiculo> getVehiculosByFabricante(String nombreFabricante);
+
+    public Cliente getClienteByVehiculoId(int id);
 
 }

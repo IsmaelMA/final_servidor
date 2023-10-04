@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ismaelmaldonado.final_servidor.model.Cliente;
 import com.ismaelmaldonado.final_servidor.model.Vehiculo;
 import com.ismaelmaldonado.final_servidor.services.vehiculo.VehiculoService;
 
@@ -32,6 +33,11 @@ public class VehiculoController {
         return service.getVehiculoById(id);
     }
 
+     @GetMapping(value = "/vehiculo/dueño/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Cliente getClienteByVehiculoId(@PathVariable int id) {
+        return service.getClienteByVehiculoId(id);
+    }
+
     @GetMapping(value = "/vehiculo/detalle/matricula/{matricula}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Vehiculo getVehiculoByMatricula(@PathVariable String matricula) {
         return service.getVehiculoByMatricula(matricula);
@@ -56,5 +62,7 @@ public class VehiculoController {
     public void createVehiculo(@RequestBody Vehiculo vehiculo, @PathVariable int id) {
         service.createVehiculo(vehiculo, id);
     }
+
+
 
 }

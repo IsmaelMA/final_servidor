@@ -1,5 +1,6 @@
 package com.ismaelmaldonado.final_servidor.repository;
 
+import com.ismaelmaldonado.final_servidor.model.Cliente;
 import com.ismaelmaldonado.final_servidor.model.Vehiculo;
 
 import java.util.List;
@@ -17,4 +18,8 @@ public interface VehiculoRepository extends JpaRepository<Vehiculo, Integer> {
 
     @Query("SELECT v FROM Vehiculo v WHERE v.matricula = :matricula")
     public Vehiculo getVehiculoByMatricula(@Param("matricula") String matricula);
+
+    @Query("SELECT c FROM Cliente c JOIN c.vehiculos v WHERE v.id = :id")
+    public Cliente getClienteByVehiculoID(@Param("id") int id);
+
 }
