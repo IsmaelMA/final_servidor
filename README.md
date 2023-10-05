@@ -1,6 +1,6 @@
 # Proyecto Final Servidor
 
-Este repositorio contiene el código y recursos relacionados con el proyecto final del curso "Servidor". Aquí encontrarás todas las implementaciones y configuraciones necesarias para poner en marcha el proyecto.
+Este repositorio contiene el código y recursos relacionados con el proyecto final del curso "Master Java". Aquí encontrarás todas las implementaciones y configuraciones necesarias para poner en marcha el proyecto.
 
 ## Inicio rápido
 
