@@ -90,6 +90,12 @@ public class ClienteController {
         service.createClient(cliente);
     }
 
+    @PostMapping(value = "/cliente/{nombre}/{apellido}")
+    public void createCliente(@PathVariable("nombre") String nombre, @PathVariable("apellido") String apellido) {
+        Cliente cliente = new Cliente(nombre, apellido);
+        service.createClient(cliente);
+    }
+
     /**
      * Endpoint para actualizar la información de un cliente específico.
      * 

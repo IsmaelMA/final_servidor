@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.ismaelmaldonado.final_servidor.model.Cliente;
 import com.ismaelmaldonado.final_servidor.model.Vehiculo;
+import com.ismaelmaldonado.final_servidor.services.cliente.ClienteService;
 import com.ismaelmaldonado.final_servidor.services.vehiculo.VehiculoService;
 
 /**
@@ -20,6 +21,9 @@ public class VehiculoController {
     // Inyección de dependencia del servicio VehiculoService.
     @Autowired
     private VehiculoService service;
+
+    @Autowired
+    private ClienteService clienteService;
 
     /**
      * Endpoint que devuelve una lista con todos los vehículos.
@@ -106,6 +110,15 @@ public class VehiculoController {
     @PostMapping(value = "/vehiculo/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createVehiculo(@RequestBody Vehiculo vehiculo, @PathVariable int id) {
         service.createVehiculo(vehiculo, id);
+    }
+
+    @PostMapping(value = "/vehiculo/{matricula}/{fabricante}/{modelo}/{clienteId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void createVehiculoByURLParams(@PathVariable("matricula") String matricula,
+            @PathVariable("fabricante") String fabricante, @PathVariable("modelo") String modelo,
+            @PathVariable("clienteId") int clienteId) {
+        Cliente clienteRecuperado = clienteService.getClienteById(clienteId);
+        Vehiculo vehiculo = new Vehiculo(matricula, fabricante, modelo, clienteRecuperado);
+        service.createVehiculo(vehiculo, clienteRecuperado.getId());
     }
 
 }

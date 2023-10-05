@@ -178,6 +178,13 @@ public class Vehiculo {
         this.cliente = cliente;
     }
 
+    public Vehiculo(String matricula, String fabricante, String modelo, Cliente cliente) {
+        this.matricula = matricula;
+        this.fabricante = fabricante;
+        this.modelo = modelo;
+        this.cliente = cliente;
+    }
+
     /**
      * Calcula el código hash basado en el ID y la matrícula del vehículo.
      * 

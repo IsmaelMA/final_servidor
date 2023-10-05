@@ -71,4 +71,5 @@ public interface IVehiculoService {
      * @return Cliente asociado al vehículo dado.
      */
     public Cliente getClienteByVehiculoId(int id);
+
 }

@@ -70,6 +70,11 @@ public class Cliente {
         this.vehiculos = vehiculos;
     }
 
+    public Cliente(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
     /**
      * @return Identificador único del Cliente.
      */
