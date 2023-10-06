@@ -224,6 +224,12 @@ public class Vehiculo {
         return true;
     }
 
+    public Vehiculo(String matricula, String fabricante, String modelo) {
+        this.matricula = matricula;
+        this.fabricante = fabricante;
+        this.modelo = modelo;
+    }
+
     /**
      * Retorna una representación en cadena del objeto Vehiculo.
      *
