@@ -53,7 +53,7 @@ public class VehiculoController {
      * @param id ID del vehículo.
      * @return Cliente dueño del vehículo.
      */
-    @GetMapping(value = "/vehiculo/dueño/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/vehiculo/propietario/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Cliente getClienteByVehiculoId(@PathVariable int id) {
         return service.getClienteByVehiculoId(id);
     }
@@ -112,7 +112,7 @@ public class VehiculoController {
         service.createVehiculo(vehiculo, id);
     }
 
-    @PostMapping(value = "/vehiculo/{matricula}/{fabricante}/{modelo}/{clienteId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/vehiculo/{matricula}/{fabricante}/{modelo}/{clienteId}")
     public void createVehiculoByURLParams(@PathVariable("matricula") String matricula,
             @PathVariable("fabricante") String fabricante, @PathVariable("modelo") String modelo,
             @PathVariable("clienteId") int clienteId) {
